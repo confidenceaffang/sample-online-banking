@@ -9,6 +9,9 @@ const HeaderBox = ({type ="title", title, subtext, user}: HeaderBoxProps) => {
           <span className='text-bankGradient'>&nbsp;{user}</span>
         )}
       </h1>
+      <p className='header-box-subtext'>
+          {subtext}
+      </p>
     </div>
   )
 }
