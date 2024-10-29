@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "AAS Bank",
   description: "AAS is a mordern banking platform",
   icons:{
-    icon: '/icons/logo.svg'
+    icon: '/icons/tiltlelogo.svg'
   }
 };
 
