@@ -3,9 +3,8 @@ import React from 'react'
 const Home = () => {
   return (
     <div>
-    DASHBOARD
+      DASHBOARD
     </div>
   )
 }
-
-export default Home
+export default Home;
