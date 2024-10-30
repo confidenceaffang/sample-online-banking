@@ -1,5 +1,5 @@
 import React from 'react'
-import CountUp from 'react-countup'
+import Countup from "react-countup";
 
 const AnimatedCounter = ({amount}: {amount: number}) => {
   return (
