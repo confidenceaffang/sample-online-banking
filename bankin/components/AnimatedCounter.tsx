@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 import CountUp from 'react-countup'
 
@@ -14,4 +15,4 @@ const AnimatedCounter = ({amount}: {amount: number}) => {
   )
 }
 
-export default AnimatedCounter
+export default AnimatedCounter;
