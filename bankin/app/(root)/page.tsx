@@ -16,7 +16,7 @@ const Home = () => {
         user ={loggedIn?.firstname || "Guest"}
         subtext = "Access and manage your account efficitently"/>
         <TotalBalanceBox 
-        accounts= {[]}
+        account= {[]}
         totalBanks = {1}
         totalCurrentBalance = {1000.20}
         />
@@ -26,7 +26,7 @@ const Home = () => {
     <RightSidebar 
     user={loggedIn}
     transactions ={[]}
-    banks ={[{}, {}]}
+    banks ={[{currentBalance: 500.11}, {currentBalance: 500.11}]}
     />
    </section>
   )
