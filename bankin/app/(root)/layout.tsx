@@ -1,7 +1,6 @@
 'use client';
 import MobileNav from "@/components/MobileNav";
 import Sidebar from "@/components/Sidebar";
-import Image from "next/image";
 
 export default function RootLayout({
   children,
@@ -12,13 +11,9 @@ export default function RootLayout({
   return (
    <main className="flex h-screen w-full font-inter">
     <Sidebar user = {LoggedIn}/>
-    <div className="flex flex-col size-full ">
-      <div className="route-layout">
-        <Image  src="/icons/tiltlelogo.svg" width={30} height={30} alt="logo"/>
-        <div>
-           <MobileNav user={LoggedIn}/>
-         </div>
-       
+    <div className="flex flex-col size-full flex-grow ">
+      <div className="route-layout flex justify-end items-center p-4">      
+        <MobileNav user={LoggedIn} className="mobile-nav " />
       </div>
          {children}
     </div>
