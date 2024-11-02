@@ -1,5 +1,5 @@
-/*import React from 'react'
-import Countup from "react-countup";
+import React from 'react'
+import CountUp from 'react-countup'
 
 const AnimatedCounter = ({amount}: {amount: number}) => {
   return (
@@ -15,4 +15,4 @@ const AnimatedCounter = ({amount}: {amount: number}) => {
   )
 }
 
-export default AnimatedCounter*/
+export default AnimatedCounter

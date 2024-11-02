@@ -192,7 +192,7 @@ declare interface AuthFormProps {
 }
 
 declare interface BankDropdownProps {
-  accounts: Account[];
+  account: Account[];
   setValue?: UseFormSetValue<any>;
   otherStyles?: string;
 }
@@ -203,7 +203,7 @@ declare interface BankTabItemProps {
 }
 
 declare interface TotlaBalanceBoxProps {
-  accounts: Account[];
+  account: Account[];
   totalBanks: number;
   totalCurrentBalance: number;
 }
@@ -223,7 +223,7 @@ declare interface SiderbarProps {
 }
 
 declare interface RecentTransactionsProps {
-  accounts: Account[];
+  account: Account[];
   transactions: Transaction[];
   appwriteItemId: string;
   page: number;
@@ -247,15 +247,15 @@ declare interface CategoryProps {
 }
 
 declare interface DoughnutChartProps {
-  accounts: Account[];
+  account: Account[];
 }
 
 declare interface PaymentTransferFormProps {
-  accounts: Account[];
+  account: Account[];
 }
 
 // Actions
-declare interface getAccountsProps {
+declare interface getaccountProps {
   userId: string;
 }
 
