@@ -174,7 +174,6 @@ export function extractCustomerIdFromUrl(url: string) {
 
   // Extract the last part, which represents the customer ID
   const customerId = parts[parts.length - 1];
-
   return customerId;
 }
 

@@ -19,10 +19,13 @@ const MobileNav = ({ user }: MobileNavProps) => {
 
   return (
     <section className="w-full max-w-[264px]">
+      
       <Sheet>
-        <SheetTrigger className="">
+      <div className="absolute right-0 md:hidden">
+      <SheetTrigger>
           <Image src="/icons/hamburger.svg" width={30} height={30} alt="menu" className="cursor-pointer" />
         </SheetTrigger>
+      </div>
         <SheetContent side="right" className="border-none bg-white">
           <Link href="/" className="cursor-pointer flex items-center gap-2 px-4" aria-label="Home">
             <Image src="/icons/tiltlelogo.svg" width={34} height={34} alt="Logo" />

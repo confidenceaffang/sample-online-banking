@@ -13,7 +13,7 @@ export default function RootLayout({
     <Sidebar user = {LoggedIn}/>
     <div className="flex flex-col size-full flex-grow ">
       <div className="route-layout flex justify-end items-center p-4">      
-        <MobileNav user={LoggedIn} className="mobile-nav " />
+        <MobileNav user={LoggedIn} className="mobile-nav" />
       </div>
          {children}
     </div>

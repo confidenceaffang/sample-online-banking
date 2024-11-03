@@ -13,7 +13,7 @@ const Home = () => {
         <HeaderBox 
         type ="greeting"
         title ="Welcome"
-        user ={loggedIn?.firstname || "Guest"}
+        user ={loggedIn?.firstName || "Guest"}
         subtext = "Access and manage your account efficitently"/>
         <TotalBalanceBox 
         account= {[]}
