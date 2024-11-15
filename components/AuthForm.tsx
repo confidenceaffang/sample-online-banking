@@ -18,15 +18,15 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import {Loader, Loader2} from "lucide-react";
+import { authFormSchema } from "@/lib/utils";
 
-const formSchema = z.object({
-  email: z.string().email(),
-password: z.string().min(8),})
+
 
 const AuthForm = ({ type }: { type: string }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   // 1. Define your form.
+  const formSchema = authFormSchema(type);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -54,6 +54,7 @@ const AuthForm = ({ type }: { type: string }) => {
             width={34}
             height={34}
             alt="Logo"
+            className=""
           />
           <h1 className="text-26 font-bold text-black-1">
             <LinearGradient gradient={["to left", "#900C3F, #343434"]}>
@@ -78,6 +79,131 @@ const AuthForm = ({ type }: { type: string }) => {
         <>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              {type === 'sign-up' &&(
+                <>
+          <div className="flex gap-12">
+                <FormField 
+                control={form.control}
+                name = "firstName"
+                render = {({field}) =>(
+                  <div className="form-item">
+                    <FormLabel className="form-label">
+                      First Name
+                    </FormLabel>
+                    <div className="w-full">
+                      <FormControl>
+                        <Input placeholder="ex: John" className="input-class"{...field}/>
+                      </FormControl>
+                      <FormMessage className="form-message mt-2"/>
+                    </div>
+                  </div>
+                )}/>
+                  <FormField 
+                control={form.control}
+                name = "lastName"
+                render = {({field}) =>(
+                  <div className="form-item">
+                    <FormLabel className="form-label">
+                      Last Name
+                    </FormLabel>
+                    <div className="flex flex-wrap w-full">
+                      <FormControl>
+                        <Input placeholder="ex: John" className="input-class"{...field}/>
+                      </FormControl>
+                      <FormMessage className="form-message mt-2"/>
+                    </div>
+                  </div>
+                )}/>
+                  </div>
+                <FormField
+                control={form.control}
+                name="address1"
+                render={({ field }) => (
+                 <div className="form-item">
+                    <FormLabel className="form-label">
+                        Address
+                    </FormLabel>
+                    <div className="flex w-full flex-col">
+                        <FormControl>
+                            <Input placeholder="Enter your specific address" className="input-class"{...field}/>
+                        </FormControl>
+                        <FormMessage className="form-message mt-2" />
+                    </div>
+                 </div>
+                )}
+              />
+              
+              <div className="flex gap-12 w-full">
+                <FormField 
+                control={form.control}
+                name = "state"
+                render = {({field}) =>(
+                  <div className="form-item">
+                    <FormLabel className="form-label">
+                      State
+                    </FormLabel>
+                    <div className=" w-full">
+                      <FormControl>
+                        <Input placeholder="ex: NE" className="input-class"{...field}/>
+                      </FormControl>
+                      <FormMessage className="form-message mt-2"/>
+                    </div>
+                  </div>
+                )}/>
+                  <FormField 
+                control={form.control}
+                name = "postalCode"
+                render = {({field}) =>(
+                  <div className="form-item">
+                    <FormLabel className="form-label">
+                        Postal code
+                    </FormLabel>
+                    <div className="w-full">
+                      <FormControl>
+                        <Input placeholder="ex: 11002" className="input-class"{...field}/>
+                      </FormControl>
+                      <FormMessage className="form-message mt-2"/>
+                    </div>
+                  </div>
+                )}/>
+                  </div>
+
+                  <div className="flex  gap-12 w-full">
+                <FormField 
+                control={form.control}
+                name = "dateOfBirth"
+                render = {({field}) =>(
+                  <div className="form-item">
+                    <FormLabel className="form-label">
+                      Date of Birth
+                    </FormLabel>
+                    <div className="w-full">
+                      <FormControl>
+                        <Input placeholder="yyyy-mm-dd" className="input-class"{...field}/>
+                      </FormControl>
+                      <FormMessage className="form-message mt-2"/>
+                    </div>
+                  </div>
+                )}/>
+                  <FormField 
+                control={form.control}
+                name = "ssn"
+                render = {({field}) =>(
+                  <div className="form-item">
+                    <FormLabel className="form-label">
+                      SSN
+                    </FormLabel>
+                    <div className="w-full">
+                      <FormControl>
+                        <Input placeholder="ex: 1234" className="input-class"{...field}/>
+                      </FormControl>
+                      <FormMessage className="form-message mt-2"/>
+                    </div>
+                  </div>
+                )}/>
+                  </div>
+                </>
+              )}
               <FormField
                 control={form.control}
                 name="email"
@@ -112,16 +238,25 @@ const AuthForm = ({ type }: { type: string }) => {
                  </div>
                 )}
               />
-
-               <Button type="submit" className="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 ..." >
+              <div className="flex flex-col gap-4">
+               <Button type="submit" disabled={isLoading} className="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 ..." >
                 {isLoading? (
                     <>
                     <Loader2 size={20} className="animate-spin"/> &nbsp;
+                    Loading ...
+               </>): type === "sign-in" ? "Sign in": "Sign Up"}</Button>
+                  </div>
 
-               </>)}</Button>
-     
             </form>
           </Form>
+          <footer className="flex justify-center gap-1">
+            <p className="text-14 font-normal text-gray-600">
+              {type === 'sign-in' ? "Don't have an account?" : "Already have an account with this email. "}
+            </p>
+            <Link href={type === 'sign-in'? '/sign-up': '/sign-in'} className="form-link">
+            {type === 'sign-in'? 'Sign Up': 'Sign In'}
+            </Link>
+           </footer>
         </>
       )}
     </section>
