@@ -12,6 +12,7 @@ import { usePathname } from 'next/navigation';
 import { LinearGradient } from "react-text-gradients";
 import { cn } from "@/lib/utils";
 import Link from 'next/link'; 
+import Footer from "./Footer";
 
 
 const MobileNav = ({ user }: MobileNavProps) => {
@@ -21,7 +22,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
     <section className="w-full max-w-[264px]">
       
       <Sheet>
-      <div className="absolute right-0 md:hidden">
+      <div className="absolute right-10 md:hidden">
       <SheetTrigger>
           <Image src="/icons/hamburger.svg" width={30} height={30} alt="menu" className="cursor-pointer" />
         </SheetTrigger>
@@ -54,7 +55,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                 USER
               </nav>
             </SheetClose>
-            FOOTER
+          <Footer user={user} type="mobile"/>
           </div>
         </SheetContent>
       </Sheet>
