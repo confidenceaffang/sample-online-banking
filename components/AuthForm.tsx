@@ -127,16 +127,43 @@ const AuthForm = ({ type }: { type: string }) => {
                       )}
                     />
                   </div>
-
+                      
+                  <FormField
+                      control={form.control}
+                      name="address1"
+                      render={({ field }) => (
+                        <div className="form-item">
+                          <FormLabel className="form-label">Address</FormLabel>
+                          <FormControl>
+                            <Input placeholder="ex: 1234 NE st" className="input-class" {...field} />
+                          </FormControl>
+                          <FormMessage className="form-message mt-2" />
+                        </div>
+                      )}
+                    />
+                         
+                  <FormField
+                      control={form.control}
+                      name="city"
+                      render={({ field }) => (
+                        <div className="form-item">
+                          <FormLabel className="form-label">City</FormLabel>
+                          <FormControl>
+                            <Input placeholder="ex: Wayne" className="input-class" {...field} />
+                          </FormControl>
+                          <FormMessage className="form-message mt-2" />
+                        </div>
+                      )}
+                    />
                   <div className="flex gap-12">
                     <FormField
                       control={form.control}
-                      name="firstName"
+                      name="state"
                       render={({ field }) => (
                         <div className="form-item">
-                          <FormLabel className="form-label">First Name</FormLabel>
+                          <FormLabel className="form-label">State</FormLabel>
                           <FormControl>
-                            <Input placeholder="ex: John" className="input-class" {...field} />
+                            <Input placeholder="ex: NY" className="input-class" {...field} />
                           </FormControl>
                           <FormMessage className="form-message mt-2" />
                         </div>
@@ -144,12 +171,40 @@ const AuthForm = ({ type }: { type: string }) => {
                     />
                     <FormField
                       control={form.control}
-                      name="lastName"
+                      name="postalCode"
                       render={({ field }) => (
                         <div className="form-item">
-                          <FormLabel className="form-label">Last Name</FormLabel>
+                          <FormLabel className="form-label">Postal Code</FormLabel>
                           <FormControl>
-                            <Input placeholder="ex: Doe" className="input-class" {...field} />
+                            <Input placeholder="ex: 10101" className="input-class" {...field} />
+                          </FormControl>
+                          <FormMessage className="form-message mt-2" />
+                        </div>
+                      )}
+                    />
+                  </div>
+                  <div className="flex gap-12">
+                    <FormField
+                      control={form.control}
+                      name="dateOfBirth"
+                      render={({ field }) => (
+                        <div className="form-item">
+                          <FormLabel className="form-label">Date Of Birth</FormLabel>
+                          <FormControl>
+                            <Input placeholder="ex: yyyy-mm-dd" className="input-class" {...field} />
+                          </FormControl>
+                          <FormMessage className="form-message mt-2" />
+                        </div>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="ssn"
+                      render={({ field }) => (
+                        <div className="form-item">
+                          <FormLabel className="form-label">SSN</FormLabel>
+                          <FormControl>
+                            <Input placeholder="ex: 1234" className="input-class" {...field} />
                           </FormControl>
                           <FormMessage className="form-message mt-2" />
                         </div>
