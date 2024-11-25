@@ -127,7 +127,36 @@ const AuthForm = ({ type }: { type: string }) => {
                       )}
                     />
                   </div>
-                  {/* Additional fields for sign-up (address, city, etc.) */}
+
+                  <div className="flex gap-12">
+                    <FormField
+                      control={form.control}
+                      name="firstName"
+                      render={({ field }) => (
+                        <div className="form-item">
+                          <FormLabel className="form-label">First Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="ex: John" className="input-class" {...field} />
+                          </FormControl>
+                          <FormMessage className="form-message mt-2" />
+                        </div>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="lastName"
+                      render={({ field }) => (
+                        <div className="form-item">
+                          <FormLabel className="form-label">Last Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="ex: Doe" className="input-class" {...field} />
+                          </FormControl>
+                          <FormMessage className="form-message mt-2" />
+                        </div>
+                      )}
+                    />
+                  </div>
+                 
                 </>
               )}
               <FormField
