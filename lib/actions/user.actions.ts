@@ -5,16 +5,17 @@ import { cookies } from "next/headers";
 import { parseStringify } from "../utils";
 
 
-export const signIn = async({email, password}: signInProps) =>{
-    try{
-      const { account } = await createAdminClient();
-      const response = await account.createEmailPasswordSession(email, password);
-
-      return parseStringify(response);
-    } catch(error){
-        console.error("Error", error);
-    }
-}
+export const signIn = async ({ email, password }: signInProps) => {
+  try {
+    const { account } = await createAdminClient();
+    const response = await account.createEmailPasswordSession(email, password);
+    
+    return parseStringify(response);  // Assuming this parses and returns the response
+  } catch (error) {
+    console.error("Error during sign-in:", error);
+    throw new Error("Sign-in failed"); // Re-throw the error so it can be caught in onSubmit
+  }
+};
 
 export const signUp = async(userData: SignUpParams) =>{
     const {email, password, firstName, lastName} = userData;
