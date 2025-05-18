@@ -8,14 +8,14 @@ declare type SearchParamProps = {
 // ========================================
 
 declare type SignUpParams = {
-  firstName?: string;
-  lastName?: string;
-  address1?: string;
-  city?: string;
-  state?: string;
-  postalCode?: string;
-  dateOfBirth?: string;
-  ssn?: string;
+  firstName: string;
+  lastName: string;
+  address1: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  dateOfBirth: string;
+  ssn: string;
   email: string;
   password: string;
 };
@@ -33,7 +33,7 @@ declare type User = {
   dwollaCustomerId: string;
   firstName: string;
   lastName: string;
-  name : string;
+  name: string;
   address1: string;
   city: string;
   state: string;
@@ -60,7 +60,7 @@ declare type Account = {
   type: string;
   subtype: string;
   appwriteItemId: string;
-  sharableId: string;
+  shareableId: string;
 };
 
 declare type Transaction = {
@@ -89,7 +89,7 @@ declare type Bank = {
   accessToken: string;
   fundingSourceUrl: string;
   userId: string;
-  sharableId: string;
+  shareableId: string;
 };
 
 declare type AccountTypes =
@@ -193,7 +193,7 @@ declare interface AuthFormProps {
 }
 
 declare interface BankDropdownProps {
-  account: Account[];
+  accounts: Account[];
   setValue?: UseFormSetValue<any>;
   otherStyles?: string;
 }
@@ -203,15 +203,15 @@ declare interface BankTabItemProps {
   appwriteItemId?: string;
 }
 
-declare interface TotlaBalanceBoxProps {
-  account: Account[];
+declare interface TotalBalanceBoxProps {
+  accounts: Account[];
   totalBanks: number;
   totalCurrentBalance: number;
 }
 
 declare interface FooterProps {
   user: User;
-  type?: 'desktop' |'mobile'
+  type?: 'mobile' | 'desktop'
 }
 
 declare interface RightSidebarProps {
@@ -225,7 +225,7 @@ declare interface SiderbarProps {
 }
 
 declare interface RecentTransactionsProps {
-  account: Account[];
+  accounts: Account[];
   transactions: Transaction[];
   appwriteItemId: string;
   page: number;
@@ -249,15 +249,15 @@ declare interface CategoryProps {
 }
 
 declare interface DoughnutChartProps {
-  account: Account[];
+  accounts: Account[];
 }
 
 declare interface PaymentTransferFormProps {
-  account: Account[];
+  accounts: Account[];
 }
 
 // Actions
-declare interface getaccountProps {
+declare interface getAccountsProps {
   userId: string;
 }
 
@@ -314,7 +314,7 @@ declare interface createBankAccountProps {
   accountId: string;
   bankId: string;
   fundingSourceUrl: string;
-  sharableId: string;
+  shareableId: string;
 }
 
 declare interface getBanksProps {
